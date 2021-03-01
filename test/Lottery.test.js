@@ -81,6 +81,13 @@ describe("lottery Contract", () => {
     }
   });
 
+  it("returns manager", async () => {
+    const manager = await lottery.methods.manager().call({
+      from: accounts[0],
+    });
+    assert.ok(manager);
+  });
+
   it("sends money to the winner and restes the players array", async () => {
     let initialBalances = {};
     await lottery.methods.enter().send({
