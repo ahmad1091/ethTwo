@@ -26,13 +26,13 @@ const deploy = async () => {
 
     const result = await new web3.eth.Contract(abi)
       .deploy({
-        data: bytecode,
+        data: "0x" + bytecode,
       })
       .send({
-        gas: "1000000",
         from: accounts[0],
       });
 
+    console.log(abi);
     console.log("Adress =>", result.options.address);
     process.exit(1);
   } catch (err) {
