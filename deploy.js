@@ -1,12 +1,11 @@
 const HDWalletProvider = require("@truffle/hdwallet-provider");
 const Web3 = require("web3");
 const compiledContract = require("./compile");
-
+require("dotenv").config();
 const bytecode = compiledContract.evm.bytecode.object;
 const abi = compiledContract.abi;
 
-const mnemonicPhrase =
-  "carbon tower feel armed margin furnace nothing false course nature glance coyote";
+const mnemonicPhrase = proccess.env.mnemonicPhrase;
 
 let provider = new HDWalletProvider({
   mnemonic: {
